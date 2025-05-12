@@ -1,0 +1,153 @@
+/* === RESET ET BASE === */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative; /* Pour le positionnement du bouton */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.photo-cv {
+  max-width: 200px;
+}
+
+svg {
+  transition: transform 0.3s ease;
+}
+svg:hover {
+  transform: scale(1.1);
+}
+
+/* === CV FRANÇAIS === */
+.cv-fr .row.full-height {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  height: 100%;
+}
+
+.cv-fr .col-md-4,
+.cv-fr .col-md-8 {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-fr .col-md-4 {
+  background-color: #f8f9fa;
+}
+
+.cv-fr .p_colonne_droite {
+  background-color: #dae6f2;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-fr .p_colonne_droite > div,
+.cv-fr .col-md-4 > div {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+/* === CV ANGLAIS === */
+.cv-en .row.full-height {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  height: 100%;
+}
+
+.cv-en .col-md-4,
+.cv-en .col-md-8 {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-en .col-md-4 {
+  background-color: #dae6f2;
+}
+
+.cv-en .p_colonne_droite {
+  background-color: #f8f9fa;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-en .p_colonne_droite > div,
+.cv-en .col-md-4 > div {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 767.98px) {
+  .row.full-height {
+    flex-direction: column !important;
+    height: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .fs-1,
+  .fs-2,
+  .fs-3 {
+    text-align: center;
+  }
+}
+
+/* === FLIP EFFECT POUR CV BILINGUE === */
+.cv-flip-container {
+  perspective: 2000px;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.cv-flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.cv-flip-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.cv-face {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.cv-face.back {
+  transform: rotateY(180deg);
+}
+/* === BOUTON FLIP === */
+.flip-btn {
+  transition: transform 0.3s ease;
+}
+.flip-btn:hover {
+  transform: scale(1.05);
+}
