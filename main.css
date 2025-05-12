@@ -151,3 +151,8 @@ svg:hover {
 .flip-btn:hover {
   transform: scale(1.05);
 }
+
+.progress-fill {
+  width: 0;
+  transition: width 1.2s ease-in-out;
+}
